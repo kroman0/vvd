@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo VVD</title>
+        <style>
+.left,
+.right {
+    width: 50%;
+}
+.left .block {
+    transform: scaleY(-1);
+}
+.right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    transform: scaleY(-1);
+}
+.block1 {
+    background-image: linear-gradient(red 0%, white 100%);
+}
+.block2 {
+    background-image: linear-gradient(green 0%, white 100%);
+}
+.block3 {
+    background-image: linear-gradient(blue 0%, white 100%);
+}
+.block4 {
+    background-image: linear-gradient(yellow 0%, white 100%);
+}
+        </style>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script>
+jQuery(function($){
+    $('.block').css({'height':window.innerHeight+'px'});
+    var x = -$(document).height()+window.innerHeight+$(window).scrollTop();
+    $('.left').css({'top':x+'px'});
+    $(window).scroll(function(){
+        var x = -$(document).height()+window.innerHeight+$(window).scrollTop();
+        $('.left').css({'top':x+'px'});
+    }).resize(function(){
+        $('.block').css({'height':window.innerHeight+'px'});
+        var x = -$(document).height()+window.innerHeight+$(window).scrollTop();
+        $('.left').css({'top':x+'px'});
+    })
+});
+        </script>
+    </head>
+    <body>
+        <div class="left">
+            <div class="block block1">
+            </div>
+            <div class="block block2">
+            </div>
+            <div class="block block3">
+            </div>
+            <div class="block block4">
+            </div>
+        </div>
+        <div class="right">
+            <div class="block block1">
+            </div>
+            <div class="block block2">
+            </div>
+            <div class="block block3">
+            </div>
+            <div class="block block4">
+            </div>
+        </div>
+    </body>
+</html>
